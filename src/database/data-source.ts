@@ -1,8 +1,7 @@
-import "reflect-metadata";
 import { DataSource } from "typeorm";
 
 import { Category } from "../modules/cars/entities/Category";
-import { CreateCategory1667267007507 } from "./migrations/1667267007507-CreateCategory";
+import { CreateCategories1667743194366 } from "./migrations/1667743194366-CreateCategories";
 
 export const dataSource = new DataSource({
   type: "postgres",
@@ -14,7 +13,7 @@ export const dataSource = new DataSource({
   synchronize: false,
   logging: false,
   entities: [Category],
-  migrations: [CreateCategory1667267007507],
+  migrations: [CreateCategories1667743194366],
   subscribers: [],
 });
 
