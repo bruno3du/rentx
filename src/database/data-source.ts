@@ -1,6 +1,7 @@
 import "reflect-metadata";
 import { DataSource } from "typeorm";
 
+import { Category } from "../modules/cars/entities/Category";
 import { CreateCategory1667267007507 } from "./migrations/1667267007507-CreateCategory";
 
 export const dataSource = new DataSource({
@@ -12,7 +13,7 @@ export const dataSource = new DataSource({
   database: "rentx",
   synchronize: false,
   logging: false,
-  entities: [],
+  entities: [Category],
   migrations: [CreateCategory1667267007507],
   subscribers: [],
 });
