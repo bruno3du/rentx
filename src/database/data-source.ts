@@ -1,5 +1,6 @@
 import { DataSource } from "typeorm";
 
+import { User } from "../modules/accounts/entities/User";
 import { Category } from "../modules/cars/entities/Category";
 import { Specification } from "../modules/cars/entities/Specification";
 import { CreateCategories1667743194366 } from "./migrations/1667743194366-CreateCategories";
@@ -15,7 +16,7 @@ export const dataSource = new DataSource({
   database: "rentx",
   synchronize: false,
   logging: false,
-  entities: [Category, Specification],
+  entities: [Category, Specification, User],
   migrations: [
     CreateCategories1667743194366,
     CreateSpecifications1667747175244,
