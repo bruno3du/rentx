@@ -12,6 +12,8 @@
     "migration:revert": "typeorm-ts-node-commonjs -d ./src/database/data-source.ts migration:revert"
   },
   "dependencies": {
+    "@types/bcrypt": "^5.0.0",
+    "bcrypt": "^5.1.0",
     "csv-parse": "^5.3.0",
     "express": "^4.18.1",
     "multer": "^1.4.5-lts.1",
