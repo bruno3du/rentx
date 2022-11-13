@@ -2,6 +2,7 @@ import { compare } from "bcrypt";
 import { sign } from "jsonwebtoken";
 import { inject, injectable } from "tsyringe";
 
+import { AppError } from "../../../../errors/AppError";
 import { IUsersRepository } from "../../repositories/IUsersRepository";
 
 interface IRequest {
@@ -28,11 +29,11 @@ class AuthenticateUserUseCase {
     const passwordMatch = await compare(password, user.password);
 
     if (!user) {
-      throw new Error("Email or password not found");
+      throw new AppError("Email or password not found");
     }
 
     if (!passwordMatch) {
-      throw new Error("Email or password not found");
+      throw new AppError("Email or password not found");
     }
 
     const token = sign({}, process.env.JWT_SECRET, {
