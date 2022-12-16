@@ -1,4 +1,5 @@
 import dotenv from "dotenv";
+import { AppError } from "errors/AppError";
 import express, { Request, Response } from "express";
 import swaggerUI from "swagger-ui-express";
 import "express-async-errors";
@@ -6,7 +7,6 @@ import "reflect-metadata";
 import "./database";
 import "./shared/container";
 
-import { AppError } from "./errors/AppError";
 import { router } from "./routes";
 import swaggerFile from "./swagger.json";
 

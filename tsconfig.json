@@ -4,15 +4,26 @@
       "es5",
       "es6"
     ],
-    "target": "ESNext",
+    "target": "es2017",
     "module": "commonjs",
     "moduleResolution": "node",
     "outDir": "./build",
+    "rootDir": "./src",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "sourceMap": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
-    "esModuleInterop": true
-  }
+    "esModuleInterop": true,
+    "noEmit": true,
+    "baseUrl": "./src"
+  },
+  "include": [
+    "src/**/*.ts",
+    "tests/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    ".vscode"
+  ],
 }

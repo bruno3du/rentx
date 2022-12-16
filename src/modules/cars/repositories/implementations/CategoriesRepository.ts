@@ -1,7 +1,7 @@
+import { dataSource } from "database/data-source";
+import { Category } from "modules/cars/entities/Category";
 import { Repository } from "typeorm";
 
-import { dataSource } from "../../../../database/data-source";
-import { Category } from "../../entities/Category";
 import {
   ICategoriesRepository,
   ICreateCategoryDTO,

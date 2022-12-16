@@ -1,9 +1,8 @@
 import { compare } from "bcrypt";
+import { AppError } from "errors/AppError";
 import { sign } from "jsonwebtoken";
+import { IUsersRepository } from "modules/accounts/repositories/IUsersRepository";
 import { inject, injectable } from "tsyringe";
-
-import { AppError } from "../../../../errors/AppError";
-import { IUsersRepository } from "../../repositories/IUsersRepository";
 
 interface IRequest {
   email: string;
@@ -26,17 +25,18 @@ class AuthenticateUserUseCase {
 
   async execute({ email, password }: IRequest): Promise<IResponse> {
     const user = await this.usersRepository.findByEmail(email);
-    const passwordMatch = await compare(password, user.password);
 
     if (!user) {
       throw new AppError("Email or password not found");
     }
+    const passwordMatch = await compare(password, user.password);
 
     if (!passwordMatch) {
       throw new AppError("Email or password not found");
     }
-
-    const token = sign({}, process.env.JWT_SECRET, {
+    // acd32bd8c1fafd5e6d08f376089cf8f1
+    // process.env.JWT_SECRET
+    const token = sign({}, "acd32bd8c1fafd5e6d08f376089cf8f1", {
       subject: user.id,
       expiresIn: "1d",
     });
