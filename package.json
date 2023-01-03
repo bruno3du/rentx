@@ -6,10 +6,11 @@
   "scripts": {
     "dev": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules --respawn ./src/shared/infra/http/server.ts",
     "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/.bin/typeorm -d src/shared/infra/typeorm/data-source.ts",
-    "migration:generate": "ts-node  -d src/shared/infra/typeorm/data-source.ts migration:generate src/shared/infra/typeorm/migrations/default",
-    "migration:create": "ts-node migration:create",
+    "migration:generate": "ts-node -r tsconfig-paths/register ./node_modules/.bin/typeorm -d src/shared/infra/typeorm/data-source.ts migration:generate src/shared/infra/typeorm/migrations/default",
+    "migration:create": "ts-node -r tsconfig-paths/register ./node_modules/.bin/typeorm migration:create",
     "migration:run": "ts-node -r tsconfig-paths/register ./node_modules/.bin/typeorm -d src/shared/infra/typeorm/data-source.ts migration:run",
-    "migration:revert": "ts-node -d src/shared/infra/typeorm/data-source.ts migration:revert",
+    "seed": "ts-node -r tsconfig-paths/register ./node_modules/typeorm-extension/dist/cli/index.js seed -d src/shared/infra/typeorm/data-source.ts",
+    "migration:revert": "ts-node -r tsconfig-paths/register ./node_modules/.bin/typeorm -d src/shared/infra/typeorm/data-source.ts migration:revert",
     "test": "jest"
   },
   "dependencies": {
@@ -30,6 +31,7 @@
     "ts-node-dev": "^2.0.0",
     "tsyringe": "^4.7.0",
     "typeorm": "^0.3.10",
+    "typeorm-extension": "^2.4.1",
     "uuid": "^9.0.0"
   },
   "devDependencies": {

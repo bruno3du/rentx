@@ -2,8 +2,8 @@ import { DataSource } from "typeorm";
 
 import { dataSource } from "./data-source";
 
-export function createConnection(host = "database_rentx"): Promise<DataSource> {
+async function createConnection(host = "database_rentx"): Promise<DataSource> {
   return dataSource.setOptions({ host }).initialize();
 }
 
-export default createConnection();
+export { createConnection };
