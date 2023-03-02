@@ -7,6 +7,8 @@ import { SeederOptions } from "typeorm-extension";
 import { CreateCategories1667743194366 } from "./migrations/1667743194366-CreateCategories";
 import { CreateSpecifications1667747175244 } from "./migrations/1667747175244-CreateSpecifications";
 import { CreateUsers1668131356621 } from "./migrations/1668131356621-CreateUsers";
+import { AlterUserDeleteUsername1668260438242 } from "./migrations/1668260438242-AlterUserDeleteUsername";
+import { AlterUserAddAvatar1668362300897 } from "./migrations/1668362300897-AlterUserAddAvatar";
 import { CreateCars1671564006915 } from "./migrations/1671564006915-CreateCars";
 import { MainSeeder } from "./seeds/MainSeeder";
 
@@ -26,6 +28,8 @@ const options: DataSourceOptions & SeederOptions = {
     CreateSpecifications1667747175244,
     CreateUsers1668131356621,
     CreateCars1671564006915,
+    AlterUserDeleteUsername1668260438242,
+    AlterUserAddAvatar1668362300897,
   ],
   subscribers: [],
 };
